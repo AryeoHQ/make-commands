@@ -1,0 +1,41 @@
+services:
+    -
+        class: Tooling\PHPStan\Rules\ModelMustHaveCollection
+        tags:
+            - phpstan.rules.rule
+    -
+        class: Tooling\PHPStan\Rules\ModelMustHaveFactory
+        tags:
+            - phpstan.rules.rule
+    -
+        class: Tooling\PHPStan\Rules\ModelMustHaveEloquentBuilder
+        tags:
+            - phpstan.rules.rule
+    -
+        class: Tooling\PHPStan\Rules\EloquentBuilderMustHaveFilterableContract
+        tags:
+            - phpstan.rules.rule
+    -
+        class: Tooling\PHPStan\Rules\EloquentBuilderMustUseHasFiltersTrait
+        tags:
+            - phpstan.rules.rule
+    -
+        class: Tooling\PHPStan\Rules\EloquentBuilderMustBeFinal
+        tags:
+            - phpstan.rules.rule
+    -
+        class: Tooling\PHPStan\Rules\ControllerIsFinal
+        tags:
+            - phpstan.rules.rule
+    -
+        class: Tooling\PHPStan\Rules\ControllerHasRouteAttribute
+        tags:
+            - phpstan.rules.rule
+    -
+        class: Tooling\PHPStan\Rules\ServiceProviderIsFinal
+        tags:
+            - phpstan.rules.rule
+    -
+        class: Tooling\PHPStan\Rules\FormRequestIsFinal
+        tags:
+            - phpstan.rules.rule

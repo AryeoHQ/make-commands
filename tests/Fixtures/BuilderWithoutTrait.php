@@ -1,0 +1,18 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Tests\Fixtures;
+
+use Support\Database\Eloquent\Contracts\Filterable;
+use Support\Database\Eloquent\HasFilters;
+use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
+
+/**
+ * @template TModel of \Illuminate\Database\Eloquent\Model
+ *
+ * @extends EloquentBuilder<TModel>
+ */
+final class BuilderWithoutTrait extends EloquentBuilder implements Filterable
+{
+}

@@ -1,0 +1,20 @@
+<?php
+
+namespace {{ domainControllerDirectoryNamespace }};
+
+use {{ domainModelNamespace }};
+use Support\Routing\Attributes\Route;
+use Support\Routing\Enums\Method;
+
+final class Controller
+{
+    #[Route(
+        name: '{{ domainControllerName }}',
+        uri: '{{ domainControllerUri }}',
+        methods: {{ domainControllerMethod }},
+    )]
+    public function __invoke(Request $request, {{ domainModelBinding }})
+    {
+        //
+    }
+}

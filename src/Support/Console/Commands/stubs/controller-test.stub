@@ -1,0 +1,17 @@
+<?php
+
+namespace {{ domainControllerDirectoryNamespace }};
+
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\Test;
+use Tests\TestCase;
+
+#[CoversClass(Controller::class)]
+final class ControllerTest extends TestCase
+{
+    #[Test]
+    public function it_can_be_created(): void
+    {
+        $this->assertTrue(true);
+    }
+}
