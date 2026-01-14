@@ -47,7 +47,7 @@ trait WithDomainModelContext
         return ucfirst($event);
     }
 
-    protected function getSementicEventName(): string
+    protected function getSemanticEventName(): string
     {
         $model = Str::of($this->domainModel)
             ->singular()
@@ -93,7 +93,7 @@ trait WithDomainModelContext
                 Str::of($this->domainModel)->plural()->lower()->toString(),
                 Str::plural($this->domainModel),
                 $this->getObservableEventsString(),
-                $this->getSementicEventName(),
+                $this->getSemanticEventName(),
             ],
             parent::buildClass($name)
         );

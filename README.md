@@ -8,7 +8,7 @@ composer require aryeo/make-commands
 
 ## Usage
 
-The package is meant to scaffold all relevent files when creating domain models or endpoints. There are 2 primary commands:
+The package is meant to scaffold all relevant files when creating domain models or endpoints. There are 2 primary commands:
 
 ### make:model
 
@@ -28,7 +28,7 @@ This command will scaffold out the following files:
     + PostTest.php  // model test
     + Posts.php  // model collection
 
-The model will automatically contain the PHP attributes for registering the collection, elqouent builder and factory.
+The model will automatically contain the PHP attributes for registering the collection, eloquent builder and factory.
 
 ### make:controller
 
@@ -38,7 +38,7 @@ Example
 php artisan make:controller
 ```
 
-This command will guide you through several prompts to determine teh API version and domain model the endpoint is for
+This command will guide you through several prompts to determine the API version and domain model the endpoint is for
 
 1. API Version
 
@@ -68,7 +68,7 @@ There are several types of endpoints to choose from:
 - Delete
 - Search
 
-Once completed, the following classes will be made. Let's use the following choises as an example:
+Once completed, the following classes will be made. Let's use the following choices as an example:
 
 1. V1
 2. Post
