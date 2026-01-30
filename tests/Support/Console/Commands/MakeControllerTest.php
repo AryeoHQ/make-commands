@@ -80,7 +80,6 @@ class MakeControllerTest extends TestCase
             ->expectsSearch('What is the name of the domain model?', 'Post', '', ['Posts', 'Users'])
             ->expectsChoice('What type of endpoint would you like to create?', EndpointType::Action->value, array_column(EndpointType::cases(), 'value'))
             ->expectsQuestion('What is the name of the action? (ie: PayInvoice, Download, etc.)', 'Publish')
-            ->expectsChoice('What HTTP method is the action?', ActionMethods::Post->value, array_column(ActionMethods::cases(), 'value'))
             ->assertSuccessful();
 
         $controller = file_get_contents(app_path('Http/Api/V1/Posts/Actions/Publish/Controller.php'));

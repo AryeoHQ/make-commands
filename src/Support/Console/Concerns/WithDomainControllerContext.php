@@ -143,12 +143,7 @@ trait WithDomainControllerContext
             return;
         }
 
-        $this->endpoints = [select(
-            label: 'What HTTP method is the action?',
-            options: array_column(ActionMethods::cases(), 'value'),
-            default: ActionMethods::Post->value,
-            required: true,
-        )];
+        $this->endpoints = [ActionMethods::Post->value];
     }
 
     protected function setEndpoint(string $endpoint): void
