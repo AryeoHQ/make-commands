@@ -36,7 +36,7 @@ class MakeControllerTest extends TestCase
     public function it_creates_a_controller_and_related_files(): void
     {
         $this->artisan(MakeController::class)
-            ->expectsSearch('What is the API version?', 'V1', '', ['V1', 'Create new API version'])
+            ->expectsChoice('What is the API version?', 'V1', ['V1', 'Create new API version'])
             ->expectsSearch('What is the name of the domain model?', 'Post', '', ['Posts', 'Users'])
             ->expectsChoice('What type of endpoint would you like to create?', EndpointType::Rest->value, array_column(EndpointType::cases(), 'value'))
             ->expectsChoice('What endpoints would you like to create?', [Endpoints::Index->value, Endpoints::Show->value], array_column(Endpoints::cases(), 'value'))
@@ -55,7 +55,7 @@ class MakeControllerTest extends TestCase
     public function it_creates_a_controller_and_registers_the_route(): void
     {
         $this->artisan(MakeController::class)
-            ->expectsSearch('What is the API version?', 'V1', '', ['V1', 'Create new API version'])
+            ->expectsChoice('What is the API version?', 'V1', ['V1', 'Create new API version'])
             ->expectsSearch('What is the name of the domain model?', 'Post', '', ['Posts', 'Users'])
             ->expectsChoice('What type of endpoint would you like to create?', EndpointType::Rest->value, array_column(EndpointType::cases(), 'value'))
             ->expectsChoice('What endpoints would you like to create?', [Endpoints::Show->value], array_column(Endpoints::cases(), 'value'))
@@ -76,7 +76,7 @@ class MakeControllerTest extends TestCase
     public function it_creates_an_action_controller_and_registers_the_route(): void
     {
         $this->artisan(MakeController::class)
-            ->expectsSearch('What is the API version?', 'V1', '', ['V1', 'Create new API version'])
+            ->expectsChoice('What is the API version?', 'V1', ['V1', 'Create new API version'])
             ->expectsSearch('What is the name of the domain model?', 'Post', '', ['Posts', 'Users'])
             ->expectsChoice('What type of endpoint would you like to create?', EndpointType::Action->value, array_column(EndpointType::cases(), 'value'))
             ->expectsQuestion('What is the name of the action? (ie: PayInvoice, Download, etc.)', 'Publish')
@@ -97,7 +97,7 @@ class MakeControllerTest extends TestCase
     public function it_creates_a_request_and_related_files(): void
     {
         $this->artisan(MakeController::class)
-            ->expectsSearch('What is the API version?', 'V1', '', ['V1', 'Create new API version'])
+            ->expectsChoice('What is the API version?', 'V1', ['V1', 'Create new API version'])
             ->expectsSearch('What is the name of the domain model?', 'Post', '', ['Posts', 'Users'])
             ->expectsChoice('What type of endpoint would you like to create?', EndpointType::Rest->value, array_column(EndpointType::cases(), 'value'))
             ->expectsChoice('What endpoints would you like to create?', [Endpoints::Show->value], array_column(Endpoints::cases(), 'value'))
@@ -113,7 +113,7 @@ class MakeControllerTest extends TestCase
     public function it_creates_a_test_for_the_controller(): void
     {
         $this->artisan(MakeController::class)
-            ->expectsSearch('What is the API version?', 'V1', '', ['V1', 'Create new API version'])
+            ->expectsChoice('What is the API version?', 'V1', ['V1', 'Create new API version'])
             ->expectsSearch('What is the name of the domain model?', 'Post', '', ['Posts', 'Users'])
             ->expectsChoice('What type of endpoint would you like to create?', EndpointType::Rest->value, array_column(EndpointType::cases(), 'value'))
             ->expectsChoice('What endpoints would you like to create?', [Endpoints::Show->value], array_column(Endpoints::cases(), 'value'))

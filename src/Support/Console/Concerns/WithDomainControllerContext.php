@@ -11,7 +11,6 @@ use Support\Console\Enums\EndpointType;
 use Symfony\Component\Console\Input\InputOption;
 
 use function Laravel\Prompts\multiselect;
-use function Laravel\Prompts\search;
 use function Laravel\Prompts\select;
 use function Laravel\Prompts\text;
 
@@ -64,11 +63,14 @@ trait WithDomainControllerContext
             return;
         }
 
-        $this->apiVersion ??= search(
+        $apiVersionOptions = $this->getApiVersionOptions();
+
+        $this->apiVersion ??= select(
             label: 'What is the API version?',
-            options: fn ($search) => $this->getApiVersionOptions($search),
+            options: [...$apiVersionOptions, self::NEW_API_VERSION_OPTION],
             required: true,
             scroll: 5,
+            default: end($apiVersionOptions),
         );
 
         if ($this->apiVersion === self::NEW_API_VERSION_OPTION) {
@@ -79,16 +81,15 @@ trait WithDomainControllerContext
     /**
      * @return array<array-key, string>
      */
-    protected function getApiVersionOptions(string $search = ''): array
+    protected function getApiVersionOptions(): array
     {
         if (! is_dir(app_path('Http/Api'))) {
-            return [self::NEW_API_VERSION_OPTION];
+            return [];
         }
 
         return collect(scandir(app_path('Http/Api')))
             ->reject(fn ($dir) => str_starts_with($dir, '.'))
-            ->filter(fn ($value) => str_contains($value, strtolower($search)))
-            ->add(self::NEW_API_VERSION_OPTION)
+            ->filter(fn ($value) => str_starts_with($value, 'V'))
             ->values()
             ->toArray();
     }
