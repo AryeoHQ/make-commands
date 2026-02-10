@@ -6,7 +6,6 @@ namespace Support\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Support\Console\Commands\MakeController;
-use Support\Console\Commands\MakeModel;
 
 class MakeCommandsServiceProvider extends ServiceProvider
 {
@@ -14,7 +13,6 @@ class MakeCommandsServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->commands([
-                MakeModel::class,
                 MakeController::class,
             ]);
         }
